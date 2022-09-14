@@ -1,0 +1,68 @@
+let name: string = "musaa";
+let age: number | string; // this is called a "Union" 
+let isStudent: boolean;
+let hobbies: string[];
+let hobbiesNum: number[];
+let role: [number, string];//"Tuple"
+let role2:  number|string[];
+let nameAny: any; // could put anything in here 
+
+//role2 = [5,4]
+
+//let person: Object; // bad practise
+//name = "hello"
+// added options here 
+type Person = {
+   name?: string;
+   age?: number;
+}
+
+let person: Person = {
+    age: 22
+}
+
+// function printName(name : string) {
+//   console.log(name)
+// }
+
+// define a function type there are two ways 
+
+//let printName: Function; 
+
+let printName: (name: string) => never; // could have a number return type etc
+// void returns undefined 
+// never returns nothing 
+
+// interface better than type 
+interface Person2 {
+  name: string,
+  age?: number
+}
+
+interface Guy {
+  profession: string
+}
+
+interface Guy extends Person2 {
+   profession: string
+}
+
+type X = {
+  a: string;
+  b: number;
+}
+
+type Y = X & {
+  c: string;
+  d: number;
+};
+
+// has to have all 4 won't work otherwise
+let z: Y = {
+   a: 'yo',
+   b: 233,
+   c: "hello",
+   d: 42
+}
+
+
